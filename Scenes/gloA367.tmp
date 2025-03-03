@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://gk6h87ahoq7v"]
+
+[sub_resource type="GDScript" id="GDScript_ebvvk"]
+script/source = "extends Control
+
+func _ready():
+	$MainHBox/LeftVBox/BuffsBtn.pressed.connect(_on_buffs_pressed)
+	$MainHBox/LeftVBox/MainMenuBtn.pressed.connect(_on_main_pressed)
+	$MainHBox/MainArea/MainVBox/MapBox/Map1Btn.pressed.connect(_on_load_map, 1)
+	$MainHBox/MainArea/MainVBox/MapBox/Map1Btn.pressed.connect(_on_load_map, 2)
+	$MainHBox/MainArea/MainVBox/MapBox/Map1Btn.pressed.connect(_on_load_map, 3)
+
+func _on_buffs_pressed():
+	MessageDialog.show(\"Not Implemented Yet. :(\", self)
+	
+func _on_main_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/main_menu.tscn\")
+
+func _on_load_map(index: int):
+	# Load is inactive but still visible; optionally show a message.
+	MessageDialog.show(\"Load functionality coming soon!\", self)
+"
+
+[node name="GlobalView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_ebvvk")
+
+[node name="MainHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftVBox" type="VBoxContainer" parent="MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Spacer" type="Control" parent="MainHBox/LeftVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BuffsBtn" type="Button" parent="MainHBox/LeftVBox"]
+layout_mode = 2
+text = "BUFFS	"
+
+[node name="MainMenuBtn" type="Button" parent="MainHBox/LeftVBox"]
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="MainArea" type="Control" parent="MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainVBox" type="VBoxContainer" parent="MainHBox/MainArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpacerV" type="Control" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MapBox" type="HBoxContainer" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+
+[node name="SpacerH" type="Control" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Map1Btn" type="Button" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+text = "MAP 1
+"
+
+[node name="Map2Btn" type="Button" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+text = "MAP 2
+"
+
+[node name="Map3Btn" type="Button" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+text = "MAP 3
+"
+
+[node name="SpacerH2" type="Control" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpacerV2" type="Control" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3

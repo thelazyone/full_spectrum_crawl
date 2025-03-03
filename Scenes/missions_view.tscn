@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://gk6h87ahoq7v"]
+
+[ext_resource type="Script" path="res://Scripts/missions_view.gd" id="1_u1swd"]
+
+[node name="MissionsView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1swd")
+
+[node name="MainHBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftVBox" type="VBoxContainer" parent="MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Spacer" type="Control" parent="MainHBox/LeftVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BuffsBtn" type="Button" parent="MainHBox/LeftVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BUFFS	"
+
+[node name="MainMenuBtn" type="Button" parent="MainHBox/LeftVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="MainArea" type="Control" parent="MainHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainVBox" type="VBoxContainer" parent="MainHBox/MainArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpacerV" type="Control" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MapBox" type="HBoxContainer" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+
+[node name="SpacerH" type="Control" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Map1Btn" type="Button" parent="MainHBox/MainArea/MainVBox/MapBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAP 1
+"
+
+[node name="Map2Btn" type="Button" parent="MainHBox/MainArea/MainVBox/MapBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAP 2
+"
+
+[node name="Map3Btn" type="Button" parent="MainHBox/MainArea/MainVBox/MapBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAP 3
+"
+
+[node name="SpacerH2" type="Control" parent="MainHBox/MainArea/MainVBox/MapBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpacerV2" type="Control" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UnitsRect" type="ColorRect" parent="MainHBox/MainArea/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+color = Color(0.501407, 0.501406, 0.501406, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainHBox/MainArea/MainVBox/UnitsRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnitsLbl" type="Label" parent="MainHBox/MainArea/MainVBox/UnitsRect/VBoxContainer"]
+layout_mode = 2
+text = "UNITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpacerV2" type="Control" parent="MainHBox/MainArea/MainVBox/UnitsRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.63
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHBox/MainArea/MainVBox/UnitsRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="CustomizeUnitsBtn" type="Button" parent="MainHBox/MainArea/MainVBox/UnitsRect/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "CUSTOMIZE"

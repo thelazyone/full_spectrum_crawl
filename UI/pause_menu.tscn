@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsq1s6153lb6i"]
+
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_a1tft"]
+
+[node name="PauseMenu" type="ColorRect"]
+z_index = 99
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -64.0
+offset_right = 106.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.48, 1.48)
+color = Color(0.223103, 0.223103, 0.223103, 1)
+script = ExtResource("1_a1tft")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer1" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResumeBtn" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitBtn" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Spacer2" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3

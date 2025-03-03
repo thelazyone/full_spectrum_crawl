@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://c684pb0xk1n2v"]
+
+[ext_resource type="Script" path="res://Scripts/battle_view.gd" id="1_2aojw"]
+[ext_resource type="Script" path="res://Scripts/map_factory.gd" id="2_tmrkv"]
+
+[node name="MissionsView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2aojw")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UIBox" type="VBoxContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Spacer" type="Control" parent="UI/UIBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.04
+
+[node name="BottomBox" type="HBoxContainer" parent="UI/UIBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpacerL" type="Control" parent="UI/UIBox/BottomBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.04
+
+[node name="SupportsBox" type="HBoxContainer" parent="UI/UIBox/BottomBox"]
+layout_mode = 2
+
+[node name="SnipeBtn" type="Button" parent="UI/UIBox/BottomBox/SupportsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "        SNIPE        "
+
+[node name="BombBtn" type="Button" parent="UI/UIBox/BottomBox/SupportsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "       BOMB       "
+
+[node name="ReservesBtn" type="Button" parent="UI/UIBox/BottomBox/SupportsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "    RESERVES    "
+
+[node name="SpacerR" type="Control" parent="UI/UIBox/BottomBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.04
+
+[node name="MapFactory" type="Node" parent="."]
+script = ExtResource("2_tmrkv")
