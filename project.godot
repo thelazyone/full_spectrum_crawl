@@ -11,21 +11,19 @@ config_version=5
 [application]
 
 config/name="full_spectrum_crawl"
-run/main_scene="res://Scenes/main_menu.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalWindows="*res://Globals/global_windows.gd"
-GlobalVars="*res://Globals/global_vars.gd"
-UnitsRegister="*res://Globals/units_register.gd"
-GameState="*res://Globals/game_state.gd"
-Debug="*res://Globals/debug.gd"
-DirectionField="*res://Globals/direction_field.gd"
-DirectionPattern="*res://Globals/direction_pattern.gd"
-Geometry="*res://Globals/geometry.gd"
-Utilities="*res://Globals/utilities.gd"
+GlobalWindows="*res://globals/global_windows.gd"
+GlobalVars="*res://globals/global_vars.gd"
+UnitsRegister="*res://globals/units_register.gd"
+GameState="*res://globals/game_state.gd"
+Debug="*res://globals/debug.gd"
+Geometry="*res://globals/geometry.gd"
+Utilities="*res://globals/utilities.gd"
 
 [input]
 

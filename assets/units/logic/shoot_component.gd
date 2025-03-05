@@ -16,7 +16,7 @@ func try_shoot(angle):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PROJECTILE = preload("res://Units/projectile.tscn").instantiate()
+	PROJECTILE = preload("res://assets/vfx/projectile.tscn").instantiate()
 	pass # Replace with function body.
 
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lwet1lvycm4o"
-path="res://.godot/imported/enlisted_tank.png-7b2b6d8027189b8f1d8a36c25465ec2f.ctex"
+uid="uid://b4td4arrs5krf"
+path="res://.godot/imported/enlisted_troop_gun.png-b217568adae8558f44626bea4222d7d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Units/enlisted_tank.png"
-dest_files=["res://.godot/imported/enlisted_tank.png-7b2b6d8027189b8f1d8a36c25465ec2f.ctex"]
+source_file="res://assets/units/art/enlisted_troop_gun.png"
+dest_files=["res://.godot/imported/enlisted_troop_gun.png-b217568adae8558f44626bea4222d7d1.ctex"]
 
 [params]
 

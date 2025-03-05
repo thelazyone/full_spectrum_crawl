@@ -12,7 +12,7 @@ func _ready():
 	
 func _on_start_pressed():
 	# Notify GameManager to change to GlobalView
-	get_tree().change_scene_to_file("res://Scenes/missions_view.tscn")
+	get_tree().change_scene_to_file("res://scenes/missions_view.tscn")
 
 func _on_load_pressed():
 	# Load is inactive but still visible; optionally show a message.

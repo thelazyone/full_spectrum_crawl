@@ -20,5 +20,5 @@ func _on_quit_pressed():
 	# For example, quit to main menu; adjust as needed.
 	get_tree().paused = false
 	# Signal your global GameManager or change scene directly.
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	queue_free()

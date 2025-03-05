@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://gk6h87ahoq7v"]
 
-[ext_resource type="Script" path="res://Scripts/missions_view.gd" id="1_u1swd"]
+[ext_resource type="Script" path="res://scenes/missions_view.gd" id="1_u1swd"]
 
 [node name="MissionsView" type="Control"]
 layout_mode = 3

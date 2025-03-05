@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4td4arrs5krf"
-path="res://.godot/imported/enlisted_troop_gun.png-8cff4e378d2f6bf960ac2a2c47eb18d6.ctex"
+uid="uid://c2vbvh42nd4dq"
+path="res://.godot/imported/bug.png-6cf360f8a0afa97043109b618f82e2c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Units/enlisted_troop_gun.png"
-dest_files=["res://.godot/imported/enlisted_troop_gun.png-8cff4e378d2f6bf960ac2a2c47eb18d6.ctex"]
+source_file="res://assets/units/art/bug.png"
+dest_files=["res://.godot/imported/bug.png-6cf360f8a0afa97043109b618f82e2c3.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 extends Node
 
-var MessageDialog = preload("res://UI/message_dialog.tscn")
-var PauseMenu = preload("res://UI/pause_menu.tscn")
+var MessageDialog = preload("res://ui/message_dialog.tscn")
+var PauseMenu = preload("res://ui/pause_menu.tscn")
 
 func message(text: String, view):
 	var msg_dialog = MessageDialog.instantiate()

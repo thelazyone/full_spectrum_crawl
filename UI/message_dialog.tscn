@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnpe6emfol60a"]
 
-[ext_resource type="Script" path="res://Scripts/message_dialog.gd" id="1_tshe1"]
+[ext_resource type="Script" path="res://ui/message_dialog.gd" id="1_lue77"]
 
 [node name="MessageDialog" type="ColorRect"]
 top_level = true
@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.48, 1.48)
 color = Color(0.144063, 0.144063, 0.144062, 1)
-script = ExtResource("1_tshe1")
+script = ExtResource("1_lue77")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1

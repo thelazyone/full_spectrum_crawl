@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://cxk0bcefp310h"]
 
-[ext_resource type="Script" path="res://Units/goon.gd" id="1_np6xr"]
-[ext_resource type="PackedScene" uid="uid://bp34kpwtqwl0u" path="res://Units/splat.tscn" id="2_qg86p"]
-[ext_resource type="Script" path="res://Units/navigation_component.gd" id="3_3mihf"]
-[ext_resource type="Texture2D" uid="uid://b4td4arrs5krf" path="res://Units/enlisted_troop_gun.png" id="3_yhdra"]
-[ext_resource type="Script" path="res://Units/shoot_component.gd" id="5_ptigm"]
-[ext_resource type="Script" path="res://Units/health_component.gd" id="7_cq3ig"]
-[ext_resource type="Script" path="res://Units/fields_component.gd" id="9_myp1d"]
-[ext_resource type="Script" path="res://Units/decision_component.gd" id="9_psrb4"]
+[ext_resource type="Script" path="res://assets/units/goon.gd" id="1_np6xr"]
+[ext_resource type="PackedScene" uid="uid://bp34kpwtqwl0u" path="res://assets/vfx/splat.tscn" id="2_qg86p"]
+[ext_resource type="Script" path="res://assets/units/logic/navigation_component.gd" id="3_3mihf"]
+[ext_resource type="Texture2D" uid="uid://b4td4arrs5krf" path="res://assets/units/art/enlisted_troop_gun.png" id="3_yhdra"]
+[ext_resource type="Script" path="res://assets/units/logic/shoot_component.gd" id="5_ptigm"]
+[ext_resource type="Script" path="res://assets/units/logic/health_component.gd" id="7_cq3ig"]
+[ext_resource type="Script" path="res://assets/units/logic/fields_component.gd" id="9_myp1d"]
+[ext_resource type="Script" path="res://assets/units/logic/decision_component.gd" id="9_psrb4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0q6oi"]
 line_spacing = 1.0

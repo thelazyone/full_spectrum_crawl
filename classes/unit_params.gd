@@ -29,7 +29,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 	match unit_type:
 		Types.SOLDIER:
 			par.name_id = "Soldier"
-			par.icon = "res://Units/enlisted_troop_gun.png"
+			par.icon = "res://assets/units/art/enlisted_troop_gun.png"
 			par.hp = 10
 			par.speed = 100
 			par.spotting_range = 500
@@ -41,7 +41,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.decision_weight = 10
 		Types.TANK:
 			par.name_id = "Tank"
-			par.icon = "res://Units/enlisted_tank.png"
+			par.icon = "res://assets/units/art/enlisted_tank.png"
 			par.hp = 40
 			par.speed = 60 
 			par.spotting_range = 800
@@ -53,7 +53,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.decision_weight = 10
 		Types.BUG:
 			par.name_id = "Bug"
-			par.icon = "res://Units/bug.png"
+			par.icon = "res://assets/units/art/bug.png"
 			par.hp = 6
 			par.speed = 150
 			par.spotting_range = 800
@@ -65,7 +65,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.decision_weight = 10
 		Types.TOTEM:
 			par.name_id = "Totem"
-			par.icon = "res://Units/enlisted_troop_gun.png"
+			par.icon = "res://assets/units/art/enlisted_troop_gun.png"
 			par.hp = 200
 			par.speed = 0
 			par.spotting_range = 500

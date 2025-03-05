@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://vfj1d8ce4g7k"]
+
+[ext_resource type="Script" path="res://assets/terrain/spawn_area.gd" id="1_h0gm0"]
+
+[node name="SpawnArea4" type="ReferenceRect"]
+offset_left = 1707.0
+offset_top = 585.0
+offset_right = 1769.0
+offset_bottom = 667.0
+script = ExtResource("1_h0gm0")

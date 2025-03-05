@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmpy25gclduew"
-path="res://.godot/imported/splat.png-16aabf89bdefb066ecc3a04963dd55c2.ctex"
+uid="uid://lwet1lvycm4o"
+path="res://.godot/imported/enlisted_tank.png-1c2c53d037c64a0339af02b4b82bd513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Units/splat.png"
-dest_files=["res://.godot/imported/splat.png-16aabf89bdefb066ecc3a04963dd55c2.ctex"]
+source_file="res://assets/units/art/enlisted_tank.png"
+dest_files=["res://.godot/imported/enlisted_tank.png-1c2c53d037c64a0339af02b4b82bd513.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 extends Node
-const goon_scene = preload("res://scenes/actors/goon.tscn")
+const goon_scene = preload("res://assets/units/goon.tscn")
 
 # Periodic processing
 const UNIT_CHECK_PERIOD_MS = 100
