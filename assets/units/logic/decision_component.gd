@@ -26,8 +26,14 @@ var is_shooting : bool = false
 var current_target_enemy = null
 var latest_decision : Decision = null
 const MIN_RANGE_TO_NEW_TARGET = 50
-const MAX_DECISION_PERIOD_MS = 1000
+const MAX_DECISION_PERIOD_MS = 100
 var latest_decision_time = 0
+
+# Stuck fix:
+var latest_decision_position : Vector2 = Vector2.ZERO
+var stuck_counter = 0
+const STUCK_THRESHOLD = 5
+const STUCK_MARGIN = 10
 
 # Introducing ORDERS.
 enum Order {NONE, ADVANCE, DEFEND, SCATTER}
@@ -74,6 +80,20 @@ func get_decision() -> Decision:
 						return latest_decision
 				
 				latest_decision_time = Time.get_ticks_msec()
+				
+				# If the figure didn't move at all since last decision and if the order is advance,
+				# Setting the advance order to some random direction. Otherwise, updating the 
+				# latest decision variable.
+				var goon_position = get_parent().global_position
+				if goon_position.distance_to((latest_decision_position)) < STUCK_MARGIN:
+					stuck_counter += 1
+					if stuck_counter >= STUCK_THRESHOLD:
+						print("GOON ", self, " STUCK, USING TRICK")
+						var new_versor = Vector2(1,0).rotated(randf() * 2 * PI)
+						var new_position : Vector2 = goon_position + new_versor * 200
+						stuck_counter = 0
+						return _create_out_decision(Decision.Types.MOVE, new_position , 1)
+				latest_decision_position = goon_position
 				
 				# Setting a "in front of you" sort of target, which keeps getting updated.
 				var steps = 32

@@ -61,6 +61,11 @@ func _process(delta: float) -> void:
 # TODO These functions will be part of a specific .tscn for ability buttons.
 # It will also implement a cooldown concept, which for now is going to be hardcoded
 
+func _input(event: InputEvent) -> void:
+
+	if Input.is_action_just_pressed("Debug"):
+		Debug.debug_enabled = !Debug.debug_enabled
+
 func _on_snipe_pressed():
 	print("Snipe called!")
 	
