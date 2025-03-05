@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c684pb0xk1n2v"]
+[gd_scene load_steps=8 format=3 uid="uid://c684pb0xk1n2v"]
 
 [ext_resource type="Script" path="res://Scripts/battle_view.gd" id="1_2aojw"]
+[ext_resource type="Script" path="res://Scripts/unit_factory.gd" id="2_41kql"]
 [ext_resource type="Script" path="res://Scripts/map_factory.gd" id="2_tmrkv"]
+[ext_resource type="PackedScene" uid="uid://ccwigecrox25v" path="res://Scenes/obstacle.tscn" id="3_yrpwt"]
+[ext_resource type="Script" path="res://Scripts/spawn_area.gd" id="4_r0ffe"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_t5mkp"]
 
-[node name="MissionsView" type="Control"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_msnki"]
+vertices = PackedVector2Array(3655.56, 214.148, 3496.93, 214.148, 3007.35, 211.844, 3007.35, 88.1563, 4410.84, 40.3594, 4285.37, 135.492, 428.969, 14, 659.859, 13.8906, 540.367, 104.492, 712.5, 201.5, 701.219, 201.5, 771.258, 148.398, 4457.5, 232.5, 4446.22, 232.5, 4516.26, 179.398, 2090.52, 226.039, 2176.25, 176.539, 2555.03, 397.453, 2485.03, 467.453, 2108.1, 424.383, 1970.72, 345.063, 5214.85, 565.07, 5214.85, 406.438, 5896.51, 506.508, 5896.51, 639.852, 2877.88, 211.844, 2885.88, 481.156, 2885.88, 604.844, 2657.55, 499.969, 1867.52, 435.969, 1608.56, 364.852, 1608.56, 149.148, 2018.02, 100.469, 2877.88, 88.1563, 2103.75, 50.9688, 5890.51, 11.4297, 5890.51, 243.492, 5053.56, 389.148, 4457.5, 377.5, 4894.93, 389.148, 4894.93, 604.852, 3553.56, 546.852, 3655.56, 429.852, 4358.5, 377.5, 381.5, 639.047, 9.03906, 639, 11.9531, 11.0703, 381.5, 495.5, 554.5, 123.117, 554.5, 259.5, 480.5, 495.5, 6053.86, 243.492, 6053.86, 11.3516, 6807, 11, 6807, 639.992, 6059.86, 506.508, 843.93, 503.148, 843.93, 639.117, 480.5, 639.07, 613.5, 346.5, 712.5, 346.5, 1399.5, 559.5, 1399.5, 639.188, 1121.56, 639.156, 1121.56, 524.148, 1880.75, 611.039, 1910.56, 559.398, 2000.25, 611.18, 6031.52, 506.508, 6031.52, 449.5, 5910.17, 290.5, 5920.17, 449.5, 5920.17, 506.508, 5053.56, 406.438, 3496.93, 331.148, 3394.93, 331.148, 3553.56, 429.852, 1502.56, 149.148, 1502.56, 88.1484, 1343.93, 303.852, 1449.93, 303.852, 1449.93, 364.852, 5053.56, 604.852, 5053.56, 565.07, 1002.56, 524.148, 1002.56, 503.148, 613.5, 259.5, 4299.5, 290.5, 4358.5, 290.5, 5910.17, 243.492, 6021.52, 290.5, 6021.52, 243.492, 1905.54, 457.922, 1795.02, 561.539, 1498.5, 559.5, 6059.86, 639.883, 3394.93, 546.852, 3015.35, 481.156, 4299.5, 154.117, 2587.55, 569.977, 669.273, 13.8828, 3015.35, 604.844, 1498.5, 639.211, 1343.93, 88.1484)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11), PackedInt32Array(12, 13, 14), PackedInt32Array(15, 16, 17, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28, 17), PackedInt32Array(20, 29, 30, 31, 32, 15), PackedInt32Array(33, 25, 17, 16, 34), PackedInt32Array(14, 4, 35, 36, 22, 37), PackedInt32Array(38, 39, 40, 41, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(47, 46, 6, 8, 48, 49, 50), PackedInt32Array(51, 52, 53, 54, 55), PackedInt32Array(56, 57, 58, 50, 59, 60), PackedInt32Array(61, 62, 63, 64), PackedInt32Array(65, 66, 67), PackedInt32Array(55, 68, 69, 51), PackedInt32Array(70, 71, 72, 23, 22, 36), PackedInt32Array(22, 73, 37), PackedInt32Array(1, 74, 75, 2), PackedInt32Array(41, 76, 42), PackedInt32Array(32, 31, 77, 78, 34), PackedInt32Array(79, 80, 81), PackedInt32Array(82, 83, 21, 24), PackedInt32Array(64, 84, 85), PackedInt32Array(49, 86, 59, 50), PackedInt32Array(87, 88, 43, 42), PackedInt32Array(36, 89, 70), PackedInt32Array(90, 91, 51, 69), PackedInt32Array(20, 92, 29), PackedInt32Array(81, 30, 29, 93, 94), PackedInt32Array(54, 95, 55), PackedInt32Array(90, 69, 71, 70), PackedInt32Array(12, 14, 37, 39, 38), PackedInt32Array(2, 75, 96, 97), PackedInt32Array(98, 87, 42, 0, 5), PackedInt32Array(99, 28, 27), PackedInt32Array(67, 19, 18, 99), PackedInt32Array(100, 35, 4, 34), PackedInt32Array(41, 40, 101, 96), PackedInt32Array(96, 101, 97), PackedInt32Array(2, 97, 26, 25), PackedInt32Array(85, 56, 60, 9, 11), PackedInt32Array(61, 64, 85, 11, 94), PackedInt32Array(81, 94, 11, 100, 79), PackedInt32Array(82, 24, 102, 40), PackedInt32Array(27, 101, 40, 102, 67), PackedInt32Array(67, 99, 27), PackedInt32Array(65, 67, 102), PackedInt32Array(93, 65, 102, 94), PackedInt32Array(103, 79, 100), PackedInt32Array(78, 103, 100, 34), PackedInt32Array(34, 4, 3, 33)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, 1, 429, 4, 6817, 1, 6817, 650, -1, 649)])
+
+[node name="BattleView" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,9 +21,279 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2aojw")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="MapFactory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_tmrkv")
 
-[node name="UIBox" type="VBoxContainer" parent="UI"]
+[node name="Map" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="NavRegion" type="NavigationRegion2D" parent="Map"]
+navigation_polygon = SubResource("NavigationPolygon_msnki")
+
+[node name="Obstacles" type="Node" parent="Map/NavRegion"]
+
+[node name="Obstacle" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+
+[node name="Obstacle2" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(657, 128)
+rotation = 0.922017
+scale = Vector2(1.95549, 1.0996)
+
+[node name="Obstacle3" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(432, 568)
+
+[node name="Obstacle10" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1875, 524)
+rotation = 0.523598
+
+[node name="Obstacle11" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1450, 632)
+
+[node name="Obstacle12" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2098, 138)
+rotation = -0.523598
+
+[node name="Obstacle13" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2572, 483)
+rotation = -0.785397
+
+[node name="Obstacle5" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(925, 611)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle6" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1044, 632)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle14" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2944, 150)
+scale = Vector2(1.38574, 0.829378)
+
+[node name="Obstacle15" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2952, 543)
+scale = Vector2(1.38574, 0.829378)
+
+[node name="Obstacle23" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5967, 225)
+scale = Vector2(1.15627, 0.888045)
+
+[node name="Obstacle26" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5977, 515)
+scale = Vector2(1.15627, 0.888045)
+
+[node name="Obstacle24" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5974, 9)
+scale = Vector2(1.81457, 3.59182)
+
+[node name="Obstacle25" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5980, 741)
+scale = Vector2(1.81457, 3.59182)
+
+[node name="Obstacle7" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1425, 196)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle21" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4976, 497)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle22" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5107, 484)
+rotation = -1.57079
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle8" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1531, 257)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle16" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(3476, 439)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle17" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(3578, 322)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle9" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1987, 479)
+rotation = 0.523598
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle4" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(664, 274)
+
+[node name="Obstacle18" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4350, 218)
+
+[node name="Obstacle19" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4402, 159)
+rotation = 0.922017
+scale = Vector2(1.95549, 1.0996)
+
+[node name="Obstacle20" parent="Map/NavRegion/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4409, 305)
+
+[node name="Spawn Areas" type="Node" parent="Map"]
+
+[node name="SpawnArea4" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 1707.0
+offset_top = 585.0
+offset_right = 1769.0
+offset_bottom = 667.0
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea5" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 1625.0
+offset_top = 811.0
+offset_right = 1687.0
+offset_bottom = 893.0
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea6" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 1893.0
+offset_top = 59.0
+offset_right = 1955.0
+offset_bottom = 141.0
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea7" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 2199.0
+offset_top = 523.0
+offset_right = 2261.0
+offset_bottom = 605.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea8" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 2651.0
+offset_top = 151.0
+offset_right = 2713.0
+offset_bottom = 233.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea9" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 3104.0
+offset_top = 544.0
+offset_right = 3166.0
+offset_bottom = 626.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea10" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 3598.0
+offset_top = 456.0
+offset_right = 3660.0
+offset_bottom = 538.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea11" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 3957.0
+offset_top = 79.0001
+offset_right = 4003.0
+offset_bottom = 161.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea12" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 4491.0
+offset_top = 474.0
+offset_right = 4537.0
+offset_bottom = 556.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea13" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 4960.0
+offset_top = 281.0
+offset_right = 5006.0
+offset_bottom = 363.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea14" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 5613.0
+offset_top = 97.0
+offset_right = 5659.0
+offset_bottom = 179.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea15" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 6136.0
+offset_top = 485.0
+offset_right = 6182.0
+offset_bottom = 567.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea16" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 6114.0
+offset_top = 121.0
+offset_right = 6160.0
+offset_bottom = 203.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea17" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 6208.0
+offset_top = 143.0
+offset_right = 6254.0
+offset_bottom = 225.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea18" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 6224.0
+offset_top = 473.0
+offset_right = 6270.0
+offset_bottom = 555.0
+rotation = -0.0569499
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea3" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 1517.0
+offset_top = 396.0
+offset_right = 1579.0
+offset_bottom = 478.0
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea2" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 1153.0
+offset_top = 570.0
+offset_right = 1215.0
+offset_bottom = 652.0
+script = ExtResource("4_r0ffe")
+
+[node name="SpawnArea" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 814.0
+offset_top = 37.0
+offset_right = 876.0
+offset_bottom = 119.0
+script = ExtResource("4_r0ffe")
+
+[node name="UnitFactory" type="Node" parent="Map"]
+unique_name_in_owner = true
+script = ExtResource("2_41kql")
+
+[node name="Background" type="ColorRect" parent="Map"]
+visible = false
+offset_left = -94.0
+offset_top = -84.0
+offset_right = 6928.0
+offset_bottom = 743.0
+color = Color(0.814384, 0.758506, 0.681664, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+script = ExtResource("4_t5mkp")
+
+[node name="UI" type="CanvasLayer" parent="Camera"]
+
+[node name="UIBox" type="VBoxContainer" parent="Camera/UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,50 +302,65 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="Spacer" type="Control" parent="UI/UIBox"]
+[node name="Spacer" type="Control" parent="Camera/UI/UIBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.04
 
-[node name="BottomBox" type="HBoxContainer" parent="UI/UIBox"]
+[node name="BottomBox" type="HBoxContainer" parent="Camera/UI/UIBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SpacerL" type="Control" parent="UI/UIBox/BottomBox"]
+[node name="SpacerL" type="Control" parent="Camera/UI/UIBox/BottomBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.04
 
-[node name="SupportsBox" type="HBoxContainer" parent="UI/UIBox/BottomBox"]
+[node name="SupportsBox" type="HBoxContainer" parent="Camera/UI/UIBox/BottomBox"]
 layout_mode = 2
 
-[node name="SnipeBtn" type="Button" parent="UI/UIBox/BottomBox/SupportsBox"]
+[node name="SnipeBtn" type="Button" parent="Camera/UI/UIBox/BottomBox/SupportsBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "        SNIPE        "
 
-[node name="BombBtn" type="Button" parent="UI/UIBox/BottomBox/SupportsBox"]
+[node name="BombBtn" type="Button" parent="Camera/UI/UIBox/BottomBox/SupportsBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "       BOMB       "
 
-[node name="ReservesBtn" type="Button" parent="UI/UIBox/BottomBox/SupportsBox"]
+[node name="ReservesBtn" type="Button" parent="Camera/UI/UIBox/BottomBox/SupportsBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "    RESERVES    "
 
-[node name="SpacerR" type="Control" parent="UI/UIBox/BottomBox"]
+[node name="SpacerR" type="Control" parent="Camera/UI/UIBox/BottomBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.04
 
-[node name="MapFactory" type="Node" parent="."]
-script = ExtResource("2_tmrkv")
+[node name="LeftMouseArea" type="Control" parent="Camera/UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = -4.0
+offset_right = 69.0
+offset_bottom = 658.0
+
+[node name="RightMouseArea" type="Control" parent="Camera/UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1078.0
+offset_top = -8.0
+offset_right = 1157.0
+offset_bottom = 654.0

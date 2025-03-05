@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxk0bcefp310h"]
+
+[ext_resource type="Script" path="res://Units/goon.gd" id="1_np6xr"]
+[ext_resource type="PackedScene" uid="uid://bp34kpwtqwl0u" path="res://Units/splat.tscn" id="2_qg86p"]
+[ext_resource type="Script" path="res://Units/navigation_component.gd" id="3_3mihf"]
+[ext_resource type="Texture2D" uid="uid://b4td4arrs5krf" path="res://Units/enlisted_troop_gun.png" id="3_yhdra"]
+[ext_resource type="Script" path="res://Units/shoot_component.gd" id="5_ptigm"]
+[ext_resource type="Script" path="res://Units/health_component.gd" id="7_cq3ig"]
+[ext_resource type="Script" path="res://Units/fields_component.gd" id="9_myp1d"]
+[ext_resource type="Script" path="res://Units/decision_component.gd" id="9_psrb4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0q6oi"]
+line_spacing = 1.0
+font_size = 12
+outline_size = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87qmj"]
+
+[sub_resource type="GDScript" id="GDScript_nlked"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+"
+
+[node name="Goon" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_np6xr")
+SPLAT = ExtResource("2_qg86p")
+
+[node name="Image" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("3_yhdra")
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -37.0
+offset_right = 9.0
+offset_bottom = -14.0
+label_settings = SubResource("LabelSettings_0q6oi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_87qmj")
+script = SubResource("GDScript_nlked")
+
+[node name="NavigationComponent" type="Node2D" parent="."]
+script = ExtResource("3_3mihf")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NavigationComponent"]
+
+[node name="LineOfSight" type="Line2D" parent="."]
+width = 0.8
+default_color = Color(1, 0, 0, 1)
+
+[node name="ShootComponent" type="Node2D" parent="."]
+script = ExtResource("5_ptigm")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("7_cq3ig")
+
+[node name="FieldsComponent" type="Node2D" parent="."]
+script = ExtResource("9_myp1d")
+
+[node name="DecisionComponent" type="Node2D" parent="."]
+script = ExtResource("9_psrb4")
+
+[node name="DebugRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0

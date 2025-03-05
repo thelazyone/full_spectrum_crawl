@@ -1,5 +1,5 @@
 # Contains the information to build a map.
-class_name Map
+class_name MapParams
 extends Node2D
 
 var size : float = 8 # It's all in units, the size of a unit is set in global_vars.gd. 

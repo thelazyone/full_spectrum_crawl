@@ -1,8 +1,14 @@
-extends Node
+extends Node2D
 
-func create(map_params : MapParams) -> Node2D:
-	
-	return 
+@export var MAX_HEALTH = 10
+@onready var health = MAX_HEALTH
+
+func receive_damage(value : float):
+	health -= value
+	if health <= 0: 
+		get_parent().die() 
+		return true
+	return false
 
 
 # Called when the node enters the scene tree for the first time.

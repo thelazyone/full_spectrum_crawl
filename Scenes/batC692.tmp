@@ -1,0 +1,289 @@
+[gd_scene load_steps=8 format=3 uid="uid://c684pb0xk1n2v"]
+
+[ext_resource type="Script" path="res://Scripts/battle_view.gd" id="1_2aojw"]
+[ext_resource type="Script" path="res://Scripts/map_factory.gd" id="2_tmrkv"]
+[ext_resource type="PackedScene" uid="uid://cwa0uno20mvrm" path="res://Scenes/checkpoint.tscn" id="3_2ndl2"]
+[ext_resource type="PackedScene" uid="uid://ccwigecrox25v" path="res://Scenes/obstacle.tscn" id="3_yrpwt"]
+[ext_resource type="Script" path="res://Scripts/spawn_area.gd" id="4_r0ffe"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_t5mkp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_msnki"]
+vertices = PackedVector2Array(6807, 639.992, 9.03906, 639, 11.9531, 11, 6807, 11)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2, 1, 6817, 1, 6817, 650, -1, 649)])
+
+[node name="BattleView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2aojw")
+
+[node name="MapFactory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_tmrkv")
+
+[node name="Map" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Checkpoint" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(3712, 320)
+script = null
+
+[node name="Checkpoint14" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(3357, 660)
+script = null
+
+[node name="Checkpoint7" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(7314, 343)
+script = null
+
+[node name="Checkpoint8" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(4497, 244)
+script = null
+
+[node name="Checkpoint9" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(5079, 607)
+script = null
+
+[node name="Checkpoint10" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(6672, 377)
+script = null
+
+[node name="Checkpoint11" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(4245, 630)
+script = null
+
+[node name="Checkpoint12" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(5792, 85)
+script = null
+
+[node name="Checkpoint13" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(6276, 618)
+script = null
+
+[node name="Checkpoint4" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(2360, 255)
+script = null
+
+[node name="Checkpoint5" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(3183, 116)
+script = null
+
+[node name="Checkpoint6" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(2742, 656)
+script = null
+
+[node name="Checkpoint3" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(1617, 580)
+script = null
+
+[node name="Checkpoint2" parent="Map" instance=ExtResource("3_2ndl2")]
+position = Vector2(1184, 188)
+script = null
+
+[node name="NavRegion" type="NavigationRegion2D" parent="Map"]
+navigation_polygon = SubResource("NavigationPolygon_msnki")
+
+[node name="Background" type="ColorRect" parent="Map"]
+offset_left = -94.0
+offset_top = -84.0
+offset_right = 6928.0
+offset_bottom = 743.0
+color = Color(0.814384, 0.758506, 0.681664, 1)
+
+[node name="Obstacles" type="Node" parent="Map"]
+
+[node name="Obstacle" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+
+[node name="Obstacle2" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(657, 128)
+rotation = 0.922017
+scale = Vector2(1.95549, 1.0996)
+
+[node name="Obstacle3" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(432, 568)
+
+[node name="Obstacle10" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1875, 524)
+rotation = 0.523598
+
+[node name="Obstacle11" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1450, 632)
+
+[node name="Obstacle12" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2098, 138)
+rotation = -0.523598
+
+[node name="Obstacle13" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2572, 483)
+rotation = -0.785397
+
+[node name="Obstacle5" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(925, 611)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle6" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1044, 632)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle14" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2944, 150)
+scale = Vector2(1.38574, 0.829378)
+
+[node name="Obstacle15" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(2952, 543)
+scale = Vector2(1.38574, 0.829378)
+
+[node name="Obstacle23" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5967, 225)
+scale = Vector2(1.15627, 0.888045)
+
+[node name="Obstacle26" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5977, 515)
+scale = Vector2(1.15627, 0.888045)
+
+[node name="Obstacle24" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5974, 9)
+scale = Vector2(1.81457, 3.59182)
+
+[node name="Obstacle25" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5980, 741)
+scale = Vector2(1.81457, 3.59182)
+
+[node name="Obstacle7" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1425, 196)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle21" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4976, 497)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle22" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(5107, 484)
+rotation = -1.57079
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle8" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1531, 257)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle16" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(3476, 439)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle17" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(3578, 322)
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle9" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(1987, 479)
+rotation = 0.523598
+scale = Vector2(1.75482, 1.56565)
+
+[node name="Obstacle4" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(664, 274)
+
+[node name="Obstacle18" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4350, 218)
+
+[node name="Obstacle19" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4402, 159)
+rotation = 0.922017
+scale = Vector2(1.95549, 1.0996)
+
+[node name="Obstacle20" parent="Map/Obstacles" instance=ExtResource("3_yrpwt")]
+position = Vector2(4409, 305)
+
+[node name="Spawn Areas" type="Node" parent="Map"]
+
+[node name="SpawnArea" type="ReferenceRect" parent="Map/Spawn Areas"]
+offset_left = 971.0
+offset_top = 37.0
+offset_right = 1255.0
+offset_bottom = 289.0
+script = ExtResource("4_r0ffe")
+
+[node name="Units" type="Node" parent="Map"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+script = ExtResource("4_t5mkp")
+
+[node name="UI" type="CanvasLayer" parent="Camera2D"]
+visible = false
+
+[node name="UIBox" type="VBoxContainer" parent="Camera2D/UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="Spacer" type="Control" parent="Camera2D/UI/UIBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.04
+
+[node name="BottomBox" type="HBoxContainer" parent="Camera2D/UI/UIBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpacerL" type="Control" parent="Camera2D/UI/UIBox/BottomBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.04
+
+[node name="SupportsBox" type="HBoxContainer" parent="Camera2D/UI/UIBox/BottomBox"]
+layout_mode = 2
+
+[node name="SnipeBtn" type="Button" parent="Camera2D/UI/UIBox/BottomBox/SupportsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "        SNIPE        "
+
+[node name="BombBtn" type="Button" parent="Camera2D/UI/UIBox/BottomBox/SupportsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "       BOMB       "
+
+[node name="ReservesBtn" type="Button" parent="Camera2D/UI/UIBox/BottomBox/SupportsBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "    RESERVES    "
+
+[node name="SpacerR" type="Control" parent="Camera2D/UI/UIBox/BottomBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.04
+
+[node name="LeftMouseArea" type="Control" parent="Camera2D/UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = -4.0
+offset_right = 69.0
+offset_bottom = 658.0
+
+[node name="RightMouseArea" type="Control" parent="Camera2D/UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1078.0
+offset_top = -8.0
+offset_right = 1157.0
+offset_bottom = 654.0
