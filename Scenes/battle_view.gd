@@ -4,7 +4,7 @@ var map : Resource = null
 
 enum SupportType {NONE, SNIPE, BOMB, RESERVE}
 var prepared_support : SupportType = SupportType.NONE
-var map_size = 1200 #6300 # todo this will be variable in the future of course
+var map_size = 1000 #6300 # todo this will be variable in the future of course
 
 func get_unit_factory():
 	return %UnitFactory
@@ -67,6 +67,10 @@ func _process(delta: float) -> void:
 	# If margin has reached the end of the game, calling it a victory! 
 	if curr_point > 1:
 		_win()
+	
+	print("amount of troops: ", UnitsRegister.get_goons(1).size())
+	if UnitsRegister.get_goons(1).is_empty():
+		_lose()
 
 func _input(event: InputEvent) -> void:
 
@@ -116,9 +120,21 @@ func _reload_support(button):
 	button.disabled = false
 	
 func _win():
+	GlobalVars.player_xp += 1000
+	GlobalVars.map_level += 1
+	
 	var dialog = GlobalWindows.message("You Won! 1000 XP for you!", self, true)
 	dialog.ok_pressed.connect(_on_win_ok)
 
 func _on_win_ok():
-	GlobalVars.player_xp += 1000
 	get_tree().change_scene_to_file("res://scenes/missions_view.tscn")
+
+func _lose():
+	var dialog = GlobalWindows.message("You Lost. Try again!", self, true)
+	dialog.ok_pressed.connect(_on_lose_ok)
+
+func _on_lose_ok():
+	get_tree().change_scene_to_file("res://scenes/missions_view.tscn")
+	
+func _go_to_main():
+	UnitsRegister.clear()

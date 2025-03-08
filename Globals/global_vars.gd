@@ -4,6 +4,7 @@ var game_started = false
 
 var player_xp : int = 0
 var player_used_xp : int = 0
+var map_level : int = 1
 
 
 

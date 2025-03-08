@@ -41,7 +41,7 @@ func die():
 
 # To be called after all parameters have been set.
 func init_after_params():
-	tree_exited.connect(UnitsRegister.goon_killed.bind(XP))
+	tree_exited.connect(UnitsRegister.goon_killed.bind(self))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
