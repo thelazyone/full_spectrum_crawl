@@ -2,10 +2,8 @@ extends Control
 
 var map : Resource = null
 
-# Game variables: battle advancement 
-# TODO handle both the left area graying out (it's a device, but it's kind of cool) and the 
-# right-most area that is not in fog of war (which could be grey or whatevs) 
-
+enum SupportType {NONE, SNIPE, BOMB, RESERVE}
+var prepared_support : SupportType = SupportType.NONE
 
 func get_unit_factory():
 	return %UnitFactory
@@ -21,9 +19,9 @@ func _ready():
 	# For a first MVP it's fine to link them as is, and have the effects called 
 	# in here directly.
 	print("initializing battle view with map index ", GlobalVars.get_map_load_index())
-	%SnipeBtn.pressed.connect(_on_snipe_pressed)
-	%BombBtn.pressed.connect(_on_bomb_pressed)
-	%ReservesBtn.pressed.connect(_on_reserves_pressed)
+	%SnipeBtn.pressed.connect(_on_support_pressed.bind(SupportType.SNIPE))
+	%BombBtn.pressed.connect(_on_support_pressed.bind(SupportType.BOMB))
+	%ReservesBtn.pressed.connect(_on_support_pressed.bind(SupportType.RESERVE))
 	
 	# Loading the map:
 	#var stub_params : MapParams = MapParams.new()
@@ -55,22 +53,56 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	
+	# Periodically update the margins.
 	var player_units_rect = %UnitFactory.get_latest_containing_rect_for_faction(1)
 	GameState.right_margin = max(GameState.right_margin, player_units_rect.end.x)
-
-# TODO These functions will be part of a specific .tscn for ability buttons.
-# It will also implement a cooldown concept, which for now is going to be hardcoded
+	
+	# If margin has reached the end of the game, calling it a victory! 
+	# TODO
 
 func _input(event: InputEvent) -> void:
 
 	if Input.is_action_just_pressed("Debug"):
 		Debug.debug_enabled = !Debug.debug_enabled
+		
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print("Wow, a left mouse click at ", get_global_mouse_position())
+			print("DEBUG: prepared support is ", prepared_support)
+			
+			# If click is done after a support is prepared, using it!
+			_handle_click(get_global_mouse_position())
+			
+func _on_support_pressed(type : SupportType):
+	prepared_support = type
 
-func _on_snipe_pressed():
-	print("Snipe called!")
+func _handle_click(click_position):
+	# Getting the button, and setting the current effect.
+	match prepared_support:
+		
+		# Getting the button, and setting the current effect.
+		SupportType.NONE: return
+		
+		# Weapons have different effects AND cooldowns.
+		SupportType.SNIPE: 
+			_set_cooldown_on_button(%SnipeBtn, 1)
+			%PlayerSupports.snipe(click_position)
+		SupportType.BOMB:			
+			_set_cooldown_on_button(%BombBtn, 3)
+			%PlayerSupports.throw_bomb(click_position)
+		SupportType.RESERVE: 			
+			_set_cooldown_on_button(%ReservesBtn, 5)
+			%PlayerSupports.call_reserves(click_position)
 	
-func _on_bomb_pressed():
-	print("Bomb called!")
-	
-func _on_reserves_pressed():
-	print("Reserves called!")
+	# The action has been used, the support is back to NONE
+	prepared_support = SupportType.NONE
+
+# cooldown is set, then callign reload.
+func _set_cooldown_on_button(button : Node, duration : float):
+	button.disabled = true
+	var timer = get_tree().create_timer(duration)
+	timer.timeout.connect(_reload_support.bind(button))
+		
+func _reload_support(button):
+	button.disabled = false

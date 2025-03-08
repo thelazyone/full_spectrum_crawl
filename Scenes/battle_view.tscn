@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c684pb0xk1n2v"]
+[gd_scene load_steps=10 format=3 uid="uid://c684pb0xk1n2v"]
 
 [ext_resource type="Script" path="res://scenes/battle_view.gd" id="1_2aojw"]
 [ext_resource type="Script" path="res://factories/unit_factory.gd" id="2_41kql"]
+[ext_resource type="PackedScene" uid="uid://b4w41883vq3n0" path="res://assets/supports/player_supports.tscn" id="2_58e3l"]
 [ext_resource type="Script" path="res://factories/map_factory.gd" id="2_tmrkv"]
 [ext_resource type="PackedScene" uid="uid://ccwigecrox25v" path="res://assets/terrain/obstacle.tscn" id="3_d1v8h"]
 [ext_resource type="PackedScene" uid="uid://vfj1d8ce4g7k" path="res://assets/terrain/spawn_area.tscn" id="3_hed42"]
@@ -22,6 +23,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2aojw")
+
+[node name="PlayerSupports" parent="." instance=ExtResource("2_58e3l")]
+unique_name_in_owner = true
 
 [node name="MapFactory" type="Node" parent="."]
 unique_name_in_owner = true
@@ -292,17 +296,17 @@ offset_bottom = 478.0
 script = ExtResource("4_r0ffe")
 
 [node name="SpawnArea2" type="ReferenceRect" parent="Map/NavRegion/Spawn Areas"]
-offset_left = 1153.0
-offset_top = 570.0
-offset_right = 1215.0
-offset_bottom = 652.0
+offset_left = 2846.0
+offset_top = 462.0
+offset_right = 2908.0
+offset_bottom = 544.0
 script = ExtResource("4_r0ffe")
 
 [node name="SpawnArea" type="ReferenceRect" parent="Map/NavRegion/Spawn Areas"]
-offset_left = 814.0
-offset_top = 37.0
-offset_right = 876.0
-offset_bottom = 119.0
+offset_left = 2277.0
+offset_top = 33.0
+offset_right = 2339.0
+offset_bottom = 115.0
 script = ExtResource("4_r0ffe")
 
 [node name="UnitFactory" type="Node" parent="Map"]
