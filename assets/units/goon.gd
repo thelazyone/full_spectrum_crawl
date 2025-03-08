@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var ID : int = 0
 @export var SPEED = 100
 @export var FACTION : int = 0
+@export var XP : int = 0
 
 @export var WEAPON_RANGE = 300
 @export var SPOTTING_RANGE = 200
@@ -38,12 +39,14 @@ func die():
 	get_parent().add_child(new_splat) 
 	queue_free()
 
+# To be called after all parameters have been set.
+func init_after_params():
+	tree_exited.connect(UnitsRegister.goon_killed.bind(XP))
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("goons")
-	UnitsRegister.add_goon(self)
-	
-	pass # Replace with function body.
+	UnitsRegister.add_goon(self)	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -9,6 +9,7 @@ var hp: float				= 100
 var speed : float 			= 100	
 var icon : String			= ""
 var spotting_range : float  = 500
+var xp : int 				= 5
 
 # Attack Params
 var attack_speed : float	= 500
@@ -32,6 +33,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.icon = "res://assets/units/art/enlisted_troop_gun.png"
 			par.hp = 10
 			par.speed = 100
+			par.xp = 5
 			par.spotting_range = 500
 			par.attack_speed = 10
 			par.attack_damage = 1
@@ -44,6 +46,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.icon = "res://assets/units/art/enlisted_tank.png"
 			par.hp = 40
 			par.speed = 60 
+			par.xp = 35
 			par.spotting_range = 800
 			par.attack_speed = 2000 
 			par.attack_damage = 20
@@ -56,6 +59,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.icon = "res://assets/units/art/bug.png"
 			par.hp = 6
 			par.speed = 150
+			par.xp = 3
 			par.spotting_range = 800
 			par.attack_speed = 200
 			par.attack_damage = 2
@@ -68,6 +72,7 @@ static func get_unit_params(unit_type : Types) -> UnitParams :
 			par.icon = "res://assets/units/art/enlisted_troop_gun.png"
 			par.hp = 200
 			par.speed = 0
+			par.xp = 3
 			par.spotting_range = 500
 			par.attack_speed = 50
 			par.attack_damage = 2

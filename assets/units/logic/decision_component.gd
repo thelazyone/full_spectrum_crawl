@@ -88,7 +88,7 @@ func get_decision() -> Decision:
 				if goon_position.distance_to((latest_decision_position)) < STUCK_MARGIN:
 					stuck_counter += 1
 					if stuck_counter >= STUCK_THRESHOLD:
-						print("GOON ", self, " STUCK, USING TRICK")
+						#print("GOON ", self, " STUCK, USING TRICK")
 						var new_versor = Vector2(1,0).rotated(randf() * 2 * PI)
 						var new_position : Vector2 = goon_position + new_versor * 200
 						stuck_counter = 0

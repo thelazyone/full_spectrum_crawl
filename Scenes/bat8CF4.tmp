@@ -22,7 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 script = ExtResource("1_2aojw")
 
 [node name="PlayerSupports" parent="." instance=ExtResource("2_58e3l")]
@@ -334,6 +333,13 @@ script = ExtResource("4_r0ffe")
 unique_name_in_owner = true
 script = ExtResource("2_41kql")
 
+[node name="Background" type="ColorRect" parent="Map"]
+offset_left = -94.0
+offset_top = -84.0
+offset_right = 6928.0
+offset_bottom = 743.0
+color = Color(0.814384, 0.758506, 0.681664, 1)
+
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(576, 324)
@@ -349,13 +355,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
-mouse_filter = 2
 
 [node name="Spacer" type="Control" parent="Camera/UI/UIBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.04
-mouse_filter = 2
 
 [node name="BottomBox" type="HBoxContainer" parent="Camera/UI/UIBox"]
 layout_mode = 2
@@ -366,7 +370,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.04
-mouse_filter = 2
 
 [node name="XpLabel" type="Label" parent="Camera/UI/UIBox/BottomBox/SpacerL"]
 unique_name_in_owner = true
@@ -407,7 +410,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.04
-mouse_filter = 2
 
 [node name="ProgressionLabel" type="Label" parent="Camera/UI/UIBox/BottomBox/SpacerR"]
 unique_name_in_owner = true

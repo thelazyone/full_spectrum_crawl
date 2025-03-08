@@ -26,7 +26,7 @@ func create_unit_by_type(i_type : UnitParams.Types, i_position: Vector2, i_id: i
 
 func create_unit(i_params: UnitParams, i_position: Vector2, i_id: int, i_faction: int,) -> Node:
 	
-	var goon  = goon_scene.instantiate()
+	var goon = goon_scene.instantiate()
 	goon.position = i_position
 	goon.FACTION = i_faction
 	goon.ID = i_id
@@ -38,6 +38,7 @@ func create_unit(i_params: UnitParams, i_position: Vector2, i_id: int, i_faction
 	goon.health.health = i_params.hp
 	goon.get_node("Image").texture = load(i_params.icon)
 	goon.SPEED = i_params.speed
+	goon.XP = i_params.xp
 	goon.SPOTTING_RANGE = i_params.spotting_range
 	goon.decision.SPOT_RANGE_LONG = i_params.spotting_range * 2
 	goon.decision.SPOT_RANGE_CLOSE = i_params.spotting_range 
@@ -69,6 +70,10 @@ func create_unit(i_params: UnitParams, i_position: Vector2, i_id: int, i_faction
 	
 	if goon.FACTION != 1:
 		goon.default_facing_right = false	
+		
+	# Lastly initializing anything that needed this params to be properly set.
+	goon.init_after_params()
+	
 	return goon
 	
 # Called when the node enters the scene tree for the first time.
@@ -78,7 +83,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-			
+	
+	#last_elapsed += delta
+	#if last_elapsed > PROCESSING_TIME_S:
+		#last_elapsed = 0
+		#_update_containing_rect_for_faction(1)
+		
 	pass
 
 

@@ -24,6 +24,7 @@ func throw_bomb(coordinates : Vector2):
 func call_reserves(coordinates):
 	var spawn_position = %UnitFactory.get_latest_containing_rect_for_faction(1).position
 	spawn_position.y = coordinates.y # Spawning them at the right Y coordinate
+	spawn_position.x = max(0, spawn_position.x - 500)
 	for i in range (5):
 		%UnitFactory.create_unit_by_type(UnitParams.Types.SOLDIER, spawn_position, 0, 1)
 

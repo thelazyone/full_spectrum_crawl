@@ -10,6 +10,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	get_tree().paused = true
+	print("game paused!")
 
 func _on_resume_pressed():
 	# Remove the pause menu and resume the game.

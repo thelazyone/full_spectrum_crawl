@@ -4,6 +4,7 @@ var map : Resource = null
 
 enum SupportType {NONE, SNIPE, BOMB, RESERVE}
 var prepared_support : SupportType = SupportType.NONE
+var map_size = 1200 #6300 # todo this will be variable in the future of course
 
 func get_unit_factory():
 	return %UnitFactory
@@ -22,11 +23,6 @@ func _ready():
 	%SnipeBtn.pressed.connect(_on_support_pressed.bind(SupportType.SNIPE))
 	%BombBtn.pressed.connect(_on_support_pressed.bind(SupportType.BOMB))
 	%ReservesBtn.pressed.connect(_on_support_pressed.bind(SupportType.RESERVE))
-	
-	# Loading the map:
-	#var stub_params : MapParams = MapParams.new()
-	#map = %MapFactory.create(stub_params)
-	#print("created map ", map)
 	
 	# Setting the starting and ending point: 
 	GameState.left_margin = 0
@@ -50,7 +46,9 @@ func _ready():
 	%UnitFactory.create_unit_by_type(UnitParams.Types.SOLDIER, Vector2(30,300), 0, 1)
 	%UnitFactory.create_unit_by_type(UnitParams.Types.SOLDIER, Vector2(30,300), 0, 1)
 	%UnitFactory.create_unit_by_type(UnitParams.Types.SOLDIER, Vector2(30,300), 0, 1)
-
+	
+	# Preparing the register to count kills:
+	UnitsRegister.xp_count = GlobalVars.player_xp
 
 func _process(delta: float) -> void:
 	
@@ -58,18 +56,28 @@ func _process(delta: float) -> void:
 	var player_units_rect = %UnitFactory.get_latest_containing_rect_for_faction(1)
 	GameState.right_margin = max(GameState.right_margin, player_units_rect.end.x)
 	
+	# Updating the XP:
+	GlobalVars.player_xp = UnitsRegister.xp_count
+	%XpLabel.text = "XP: " + str(GlobalVars.player_xp)
+	
+	# Updating the progression:
+	var curr_point = player_units_rect.end.x / map_size
+	%ProgressionLabel.text = "Progression: " + str(int(curr_point * 100)) + "%"
+	
 	# If margin has reached the end of the game, calling it a victory! 
-	# TODO
+	if curr_point > 1:
+		_win()
 
 func _input(event: InputEvent) -> void:
 
 	if Input.is_action_just_pressed("Debug"):
 		Debug.debug_enabled = !Debug.debug_enabled
+	
+	if Input.is_action_just_pressed("Pause"):
+		GlobalWindows.pause(self)
 		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Wow, a left mouse click at ", get_global_mouse_position())
-			print("DEBUG: prepared support is ", prepared_support)
 			
 			# If click is done after a support is prepared, using it!
 			_handle_click(get_global_mouse_position())
@@ -106,3 +114,11 @@ func _set_cooldown_on_button(button : Node, duration : float):
 		
 func _reload_support(button):
 	button.disabled = false
+	
+func _win():
+	var dialog = GlobalWindows.message("You Won! 1000 XP for you!", self, true)
+	dialog.ok_pressed.connect(_on_win_ok)
+
+func _on_win_ok():
+	GlobalVars.player_xp += 1000
+	get_tree().change_scene_to_file("res://scenes/missions_view.tscn")

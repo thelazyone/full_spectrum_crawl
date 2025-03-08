@@ -2,6 +2,8 @@ extends Node
 
 var current_goons = []
 var current_goons_per_faction = {}
+var kill_count : int = 0
+var xp_count : int = 0
 
 func update_goons():
 	current_goons = get_tree().get_nodes_in_group("goons")
@@ -15,6 +17,10 @@ func add_goon(goon):
 	if not goon.FACTION in current_goons_per_faction:
 		current_goons_per_faction[goon.FACTION] = []
 	current_goons_per_faction[goon.FACTION].append(goon)
+
+func goon_killed(xp : int):
+	kill_count += 1
+	xp_count += xp
 
 func get_goons(faction : int = -1):
 	if faction < 0: 

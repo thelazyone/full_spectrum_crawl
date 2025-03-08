@@ -7,6 +7,8 @@ func _ready():
 	%Map2Btn.pressed.connect(_on_load_map.bind(2))
 	%Map3Btn.pressed.connect(_on_load_map.bind(3))
 	%CustomizeUnitsBtn.pressed.connect(_on_customize_units)
+	
+	%XpLabel.text = "Available XP: " + str(GlobalVars.player_xp - GlobalVars.player_used_xp) + "."
 
 func _on_buffs_pressed():
 	GlobalWindows.message("Not Implemented Yet. :(", self)
@@ -25,7 +27,6 @@ func _on_load_map_ok(index: int):
 	if index == 1:
 		GlobalVars.set_map_load_index(index)
 		get_tree().change_scene_to_file("res://scenes/battle_view.tscn")
-	
 	
 	print("Maps functionality coming soon!", self)
 	GlobalWindows.message("Maps functionality coming soon!", self)
