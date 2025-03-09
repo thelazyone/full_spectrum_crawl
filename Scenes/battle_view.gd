@@ -68,7 +68,6 @@ func _process(delta: float) -> void:
 	if curr_point > 1:
 		_win()
 	
-	print("amount of troops: ", UnitsRegister.get_goons(1).size())
 	if UnitsRegister.get_goons(1).is_empty():
 		_lose()
 

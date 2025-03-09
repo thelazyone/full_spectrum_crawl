@@ -9,9 +9,15 @@ func _ready():
 	%CustomizeUnitsBtn.pressed.connect(_on_customize_units)
 	
 	%XpLabel.text = "Available XP: " + str(GlobalVars.player_xp - GlobalVars.player_used_xp) + "."
+	_update_button_names()
+
+func _update_button_names():
+	%Map1Btn.text = "Map 1 (Level " + str(GlobalVars.map_level) + ")"
+	%Map2Btn.pressed.connect(_on_load_map.bind(2))
+	%Map3Btn.pressed.connect(_on_load_map.bind(3))
 
 func _on_buffs_pressed():
-	GlobalWindows.message("Not Implemented Yet. :(", self)
+	GlobalWindows.buffs(self)
 	
 func _on_main_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

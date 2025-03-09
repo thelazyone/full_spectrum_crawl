@@ -2,6 +2,7 @@ extends Node
 
 var MessageDialog = preload("res://ui/message_dialog.tscn")
 var PauseMenu = preload("res://ui/pause_menu.tscn")
+var BuffsMenu = preload("res://ui/buffs_dialog.tscn")
 
 func message(text: String, view, ok_only : bool = false):
 	var msg_dialog = _recenter(MessageDialog.instantiate())
@@ -16,6 +17,12 @@ func pause(view):
 	
 	view.add_child(pause_dialog)
 	return pause_dialog
+
+func buffs(view):
+	var buff_dialog = _recenter(BuffsMenu.instantiate())
+	
+	view.add_child(buff_dialog)
+	return buff_dialog
 
 func _recenter(dialog):
 	# First centering compared to the viewport...

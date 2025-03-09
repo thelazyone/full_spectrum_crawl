@@ -14,9 +14,10 @@ var explosion_radius = 0
 func set_faction(faction : int):
 	FACTION = faction
 
-func explode(coordinates : Vector2, radius : float):
+func explode(coordinates : Vector2, radius : float, damage : float):
 	position = coordinates
 	explosion_radius = radius
+	DAMAGE = damage
 	print("Radius is ", explosion_radius)
 	%Collision.scale = Vector2(explosion_radius, explosion_radius)
 	%Collision.disabled = false 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cksbtcjpq0o03"]
+
+[ext_resource type="Script" path="res://ui/buff_box.gd" id="1_a1ei4"]
+
+[node name="BuffBox" type="HBoxContainer"]
+script = ExtResource("1_a1ei4")
+
+[node name="Icon" type="ColorRect" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BuyBtn" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
