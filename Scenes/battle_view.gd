@@ -4,7 +4,7 @@ var map : Resource = null
 
 enum SupportType {NONE, SNIPE, BOMB, RESERVE}
 var prepared_support : SupportType = SupportType.NONE
-var map_size = 1000 #6300 # todo this will be variable in the future of course
+var map_size = 6300 #6300 # todo this will be variable in the future of course
 
 func get_unit_factory():
 	return %UnitFactory
